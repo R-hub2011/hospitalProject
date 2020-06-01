@@ -1,0 +1,79 @@
+Create table hospital_table(
+	hospital_id int ,
+	hospital_name varchar(255),
+	hospital_address varchar (255),
+	hospital_phoneNumber int,
+	Primary key (hospital_id)
+);
+
+
+Create table patient_table(
+	patient_id int ,
+	patient_name varchar(255),
+	patient_address varchar (255),
+	patient_phoneNumber int,
+	patient_age int,
+	Primary key (patient_id)
+);
+
+Create table specialization_table(
+	specialization_id int ,
+	specialization_name varchar(255),
+	
+	Primary key (specialization_id)
+);
+
+
+Create table doctors_table(
+	doctors_id int ,
+	doctors_name varchar(255),
+	doctors_address varchar (255),
+	doctors_phoneNumber int,
+	doctors_age int,
+	
+	specialization_id INT references specialization_table(specialization_id),
+	
+
+	Primary key (doctors_id)
+);
+
+
+Alter table doctors_table 
+ADD  hospital_id int  references hospital_table(hospital_id);
+
+Create table appointment_table(
+	appointment_id int ,
+	appointment_date date,
+	appointment_time time,
+	specialization_id INT references specialization_table(specialization_id),
+	hospital_id INT references hospital_table(hospital_id),
+	patient_id INT references patient_table(patient_id),
+	doctors_id INT references doctors_table(doctors_id),
+	
+	
+	Primary key (appointment_id)
+);
+
+
+
+Create table history_table(
+	history_id int ,
+	patient_id INT references patient_table(patient_id),
+	appointment_id INT references appointment_table(appointment_id),
+	
+	primary key (history_id)
+	
+);
+
+Create table payments_table(
+	payment_id int ,
+	payment_type varchar( 255),
+	appointment_id INT references appointment_table(appointment_id),
+	
+	
+	primary key (payment_id)
+	
+);
+
+
+
