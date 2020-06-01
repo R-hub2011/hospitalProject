@@ -23,6 +23,8 @@ Create table specialization_table(
 	Primary key (specialization_id)
 );
 
+Alter table  specialization_table
+ADD  hospital_id int  references hospital_table(hospital_id);
 
 Create table doctors_table(
 	doctors_id int ,
@@ -76,4 +78,8 @@ Create table payments_table(
 );
 
 
-
+SELECT * FROM
+	pg_catalog.pg_tables
+WHERE
+	schemaname != 'pg_catalog'
+AND schemaname != 'information_schema';

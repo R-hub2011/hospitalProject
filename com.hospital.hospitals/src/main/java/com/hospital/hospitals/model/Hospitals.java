@@ -3,19 +3,26 @@ package com.hospital.hospitals.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name= "hospital_table")
 public class Hospitals {
 	
 	@Id
 	@Column(name="hospital_Id")
 	private int hospitalId;
+	
 	@Column(name="hospital_Name")
 	private String hospitalName;
+	
 	@Column(name="hospital_Address")
 	private String hospitalAddress;
+	
 	@Column(name="hospital_Phone")
 	private int hospitalPhone;
+	
 	public int getHospitalId() {
 		return hospitalId;
 	}
