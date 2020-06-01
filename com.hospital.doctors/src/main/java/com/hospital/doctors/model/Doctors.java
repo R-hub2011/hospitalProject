@@ -23,6 +23,7 @@ public class Doctors {
 	@Column(name="doctor_age")
 	private int doctorAge;
 	
+	
 	@Column(name= "sspecialization_id")
 	private int specializationId;
 	
